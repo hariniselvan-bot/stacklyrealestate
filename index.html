@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  overflow:hidden;
+
+  /* Animated Gradient */
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+/* LOGO */
+.loader-logo{
+  color:#fff;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin-bottom:50px;
+  text-transform:uppercase;
+  animation:fadePulse 2s infinite;
+}
+
+/* GLOWING SPINNER */
+.spinner{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:6px solid rgba(255,255,255,0.2);
+  border-top:6px solid #c6ff00;
+  animation:spin 1s linear infinite;
+  box-shadow:0 0 30px #c6ff00;
+}
+
+/* SPIN */
+@keyframes spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+/* TEXT */
+.loading-text{
+  margin-top:30px;
+  color:#fff;
+  letter-spacing:2px;
+  font-size:14px;
+  opacity:0.8;
+  animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+  0%,100%{ opacity:0.4; }
+  50%{ opacity:1; }
+}
+
+/* LOGO FADE */
+@keyframes fadePulse{
+  0%{ opacity:0.6; }
+  50%{ opacity:1; }
+  100%{ opacity:0.6; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader-logo">STACKLY</div>
+
+<div class="spinner"></div>
+
+<div class="loading-text">Loading Experience...</div>
+
+<script>
+setTimeout(function(){
+  window.location.href = "home.html";
+}, 3000);
+</script>
+
+</body>
+</html>

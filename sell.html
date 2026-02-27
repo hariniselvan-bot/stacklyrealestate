@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stackly Header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.webp" alt="Stackly">
+    </div>
+
+    <ul class="menu">
+  <li class="dropdown">
+    <a href="index.html">Home 2 <span class="plus">+</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="home.html">Home One</a></li>
+      <li><a href="home2.html">Home Two</a></li>
+    </ul>
+  </li>
+
+  <li><a href="buy.html">BUYING</a></li>
+
+  <li  class="active"><a href="sell.html">SELLING</a></li>
+  <li><a href="rent.html">RENTING</a></li>
+  <li><a href="explore.html">EXPLORE MORE</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <button class="cta" onclick="window.location.href='login.html'">
+  Get Started →
+</button>
+
+      <!-- HAMBURGER -->
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </nav>
+</header>
+<!-- MOBILE MENU -->
+<input type="checkbox" id="menu-toggle">
+
+<div class="mobile-menu">
+  <label for="menu-toggle" class="close">✕</label>
+
+  <!-- HOME DROPDOWN -->
+  <div class="mobile-dropdown">
+    <input type="checkbox" id="home-toggle">
+    <label for="home-toggle" class="mobile-link">
+      Home 2 <span>+</span>
+    </label>
+
+    <div class="mobile-submenu">
+      <a href="home.html">Home 1</a>
+      <a href="home2.html">Home 2</a>
+    </div>
+  </div>
+
+  <a href="buy.html">BUYING</a>
+  <a href="sell.html">SELLING</a>
+  <a href="rent.html">RENTING</a>
+  <a href="explore.html">EXPLORE MORE</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<style>
+    .menu a{
+  font-family: "Clash Display", sans-serif;
+}
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:#eaf7e4;
+}
+/* MOBILE DROPDOWN */
+.mobile-dropdown{
+  width:100%;
+  text-align:center;
+}
+
+.mobile-dropdown input{
+  display:none;
+}
+
+.mobile-link{
+  font-size:34px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.mobile-link span{
+  font-size:30px;
+}
+/* HIDE GET STARTED ON MOBILE */
+@media (max-width: 900px){
+  .cta{
+    display: none;
+  }
+}
+/* SUBMENU */
+.mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s ease;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-top:10px;
+}
+
+.mobile-submenu a{
+  font-size:22px;
+  font-weight:500;
+  opacity:0.8;
+}
+
+/* TOGGLE OPEN */
+#home-toggle:checked ~ .mobile-submenu{
+  max-height:200px;
+}
+/* HEADER */
+.header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+}
+
+/* NAVBAR */
+.navbar{
+  margin:20px;
+  padding:14px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:50px;
+  background:transparent;
+  transition:0.3s;
+}
+
+
+
+.header:hover .navbar{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+.logo img{
+  height:30px;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:26px;
+  list-style:none;
+}
+
+.menu li{
+  position:relative;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#222;
+  font-size:14px;
+  padding-bottom:4px;
+}
+
+/* ACTIVE UNDERLINE */
+.menu li.active a,
+.menu a:hover{
+  border-bottom:2px solid #6abf4b;
+}
+
+/* PLUS */
+.plus{
+  font-weight:bold;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+  position:absolute;
+  top:35px;
+  left:0;
+  background:rgb(0, 0, 0);
+  border-radius:14px;
+  padding:10px 0;
+  min-width:150px;
+  display:none;
+}
+
+.dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+.dropdown-menu a{
+  padding:10px 18px;
+  display:block;
+  font-size:13px;
+}
+
+/* RIGHT */
+.right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.cta{
+  background:rgb(3, 44, 1);
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:30px;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:22px;
+  height:2px;
+  background:black;
+}
+
+/* MOBILE MENU */
+#menu-toggle{
+  display:none;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#eaf7e4;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  transform:translateX(100%);
+  transition:0.4s;
+  z-index:1000;
+}
+
+.mobile-menu a{
+  font-size:24px;
+  text-decoration:none;
+  color:#222;
+}
+
+.close{
+  position:absolute;
+  top:30px;
+  right:30px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+#menu-toggle:checked ~ .mobile-menu{
+  transform:translateX(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .menu{
+    display:none;
+  }
+  .hamburger{
+    display:flex;
+  }
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background:#eaf7e4;
+}
+
+/* HEADER */
+.header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+}
+
+/* NAVBAR – BIG */
+.navbar{
+  margin:24px;
+  padding:22px 44px;               /* BIG HEIGHT */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:60px;
+  background:transparent;
+  transition:0.35s ease;
+}
+
+/* SCROLL / HOVER BG */
+.header:hover .navbar{
+  background:rgba(0, 0, 0, 0.9);
+  backdrop-filter:blur(14px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* LOGO BIG */
+.logo img{
+  height:42px;                     /* BIG LOGO */
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:42px;                        /* MORE SPACE */
+  list-style:none;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:18px;                  /* BIG TEXT */
+  font-weight:500;
+  padding-bottom:8px;
+  position:relative;
+}
+
+/* ACTIVE UNDERLINE */
+.menu li.active a::after,
+.menu a:hover::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:3px;                      /* THICK */
+  background:#6abf4b;
+  border-radius:2px;
+}
+
+/* PLUS */
+.plus{
+  font-size:20px;
+  font-weight:700;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+  position:absolute;
+  top:52px;
+  left:0;
+  background:rgb(0, 0, 0);
+  border-radius:18px;
+  padding:16px 0;
+  min-width:200px;
+  display:none;
+  box-shadow:0 25px 50px rgba(0,0,0,0.18);
+}
+
+.dropdown-menu a{
+  padding:14px 26px;
+  font-size:16px;
+}
+
+.dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+/* RIGHT */
+.right{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+/* CTA BIG */
+.cta{
+  background:rgba(3, 57, 1, 0.855);
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:40px;
+  font-size:17px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:7px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:black;
+  border-radius:2px;
+}
+
+/* MOBILE MENU FULL */
+#menu-toggle{
+  display:none;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#eaf7e4;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:36px;
+  transform:translateX(100%);
+  transition:0.45s ease;
+  z-index:1000;
+}
+
+.mobile-menu a{
+  font-size:34px;                  /* HUGE */
+  font-weight:600;
+  text-decoration:none;
+  color:#111;
+}
+
+.close{
+  position:absolute;
+  top:40px;
+  right:40px;
+  font-size:34px;
+  cursor:pointer;
+}
+
+/* TOGGLE */
+#menu-toggle:checked ~ .mobile-menu{
+  transform:translateX(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .menu{
+    display:none;
+  }
+  .hamburger{
+    display:flex;
+  }
+}
+</style>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* HERO SECTION */
+.hero{
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* Background image */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("post-2.webp") center/cover no-repeat;
+  z-index:-2;
+  transform: scale(1.1);
+  animation: zoomBg 10s ease-in-out infinite alternate;
+}
+
+/* Dark overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+  z-index:-1;
+}
+
+/* HERO CONTENT */
+.hero-content{
+  animation: fadeUp 1.2s ease forwards;
+  opacity:0;
+}
+
+.hero-content h1{
+  font-size:60px;
+  font-weight:700;
+  margin-bottom:15px;
+  letter-spacing:1px;
+}
+
+.breadcrumb{
+  font-size:16px;
+  font-weight:400;
+  opacity:0.9;
+}
+
+.breadcrumb span{
+  margin:0 6px;
+  color:#9cff00;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes zoomBg{
+  from{
+    transform: scale(1.1);
+  }
+  to{
+    transform: scale(1.2);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+  .hero-content h1{
+    font-size:38px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>selling Real Estate</h1>
+    <div class="breadcrumb">
+      Home <span>/</span> Selling
+    </div>
+  </div>
+</section>
+<section class="best-deals">
+
+  <div class="container">
+
+    <h2 class="section-title">Discover Our Best Deals</h2>
+    <p class="section-sub">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit donec sollicitudin
+    </p>
+
+    <div class="deals-grid">
+
+      <!-- CARD 1 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="post-1.webp">
+          <span class="badge">FEATURED</span>
+        </div>
+        <div class="deal-content">
+          <h4>Light And Modern Apartment</h4>
+          <p class="price">$4,500/mo</p>
+          <div class="info">
+            <span>🛏 4</span>
+            <span>🛁 2</span>
+            <span>📐 1200 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="post-2.webp">
+          <span class="badge">FEATURED</span>
+        </div>
+        <div class="deal-content">
+          <h4>Design Apartment</h4>
+          <p class="price">$876,000</p>
+          <div class="info">
+            <span>🛏 3</span>
+            <span>🛁 2</span>
+            <span>📐 2560 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="post-3.webp">
+          <span class="badge">FEATURED</span>
+        </div>
+        <div class="deal-content">
+          <h4>New Apartment Nice View</h4>
+          <p class="price">$11,000/mo</p>
+          <div class="info">
+            <span>🛏 3</span>
+            <span>🛁 1</span>
+            <span>📐 1789 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="buil1.webp">
+        </div>
+        <div class="deal-content">
+          <h4>Luxury Family House</h4>
+          <p class="price">$5,600/mo</p>
+          <div class="info">
+            <span>🛏 5</span>
+            <span>🛁 3</span>
+            <span>📐 3450 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="buil2.webp">
+        </div>
+        <div class="deal-content">
+          <h4>Green View Design</h4>
+          <p class="price">$3,500/mo</p>
+          <div class="info">
+            <span>🛏 3</span>
+            <span>🛁 1</span>
+            <span>📐 1760 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="buil3.webp">
+        </div>
+        <div class="deal-content">
+          <h4>Modern Loft Apartment</h4>
+          <p class="price">$3,750/mo</p>
+          <div class="info">
+            <span>🛏 1</span>
+            <span>🛁 1</span>
+            <span>📐 1678 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="buil4.webp">
+        </div>
+        <div class="deal-content">
+          <h4>Premium Villa</h4>
+          <p class="price">$8,200/mo</p>
+          <div class="info">
+            <span>🛏 6</span>
+            <span>🛁 4</span>
+            <span>📐 4800 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="architecture1.webp">
+        </div>
+        <div class="deal-content">
+          <h4>Sea View Apartment</h4>
+          <p class="price">$6,100/mo</p>
+          <div class="info">
+            <span>🛏 3</span>
+            <span>🛁 2</span>
+            <span>📐 2100 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 9 -->
+      <div class="deal-card fade-up">
+        <div class="deal-image">
+          <img src="architecture2.webp">
+        </div>
+        <div class="deal-content">
+          <h4>City Center Residence</h4>
+          <p class="price">$4,200/mo</p>
+          <div class="info">
+            <span>🛏 2</span>
+            <span>🛁 2</span>
+            <span>📐 1500 Sq Ft</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<style>
+    body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+}
+
+.best-deals{
+  padding:80px 5%;
+  background:#f5f5f5;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.section-sub{
+  text-align:center;
+  color:gray;
+  margin-bottom:50px;
+}
+
+.deals-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.deal-card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.4s;
+}
+
+.deal-card:hover{
+  transform:translateY(-8px);
+}
+
+/* IMAGE */
+.deal-image{
+  position:relative;
+  height:230px;
+  overflow:hidden;
+}
+
+.deal-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.6s ease;
+}
+
+.deal-card:hover img{
+  transform:scale(1.05);
+}
+
+.badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:#4CAF50;
+  color:white;
+  padding:5px 12px;
+  font-size:12px;
+  border-radius:6px;
+}
+
+/* CONTENT */
+.deal-content{
+  padding:20px;
+}
+
+.deal-content h4{
+  margin:0 0 10px;
+}
+
+.price{
+  color:#007bff;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+.info{
+  display:flex;
+  gap:15px;
+  font-size:14px;
+  color:#555;
+}
+
+/* LOAD BUTTON */
+.load-btn{
+  text-align:center;
+  margin-top:40px;
+}
+
+.load-btn button{
+  padding:12px 30px;
+  border:1px solid #007bff;
+  background:transparent;
+  color:#007bff;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.load-btn button:hover{
+  background:#007bff;
+  color:white;
+}
+
+/* ========================= */
+/* FADE ANIMATION */
+/* ========================= */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.fade-up.active{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+<script>
+const fadeElements = document.querySelectorAll(".fade-up");
+
+function fadeOnScroll(){
+  fadeElements.forEach((el, index) => {
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if(top < windowHeight - 100){
+      setTimeout(() => {
+        el.classList.add("active");
+      }, index * 200);  // stagger effect
+    }
+  });
+}
+
+window.addEventListener("scroll", fadeOnScroll);
+</script>
+
+
+<style>
+
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Poppins, sans-serif;
+}
+
+/* ===== MAIN SECTION ===== */
+.realestate-inquiry-wrapper{
+  position:relative;
+  min-height:100vh;
+  background:url('bg.webp') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:80px 5%;
+  overflow:hidden;
+}
+
+.realestate-inquiry-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+.realestate-inquiry-flex{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  gap:60px;
+  width:100%;
+}
+
+/* ===== LEFT SIDE ===== */
+.realestate-inquiry-content{
+  flex:1;
+  color:white;
+}
+
+.realestate-inquiry-content h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.realestate-inquiry-content p{
+  max-width:450px;
+  margin-bottom:30px;
+}
+
+.realestate-inquiry-divider{
+  width:60px;
+  height:3px;
+  background:white;
+}
+
+/* ===== FORM BOX ===== */
+.realestate-inquiry-formbox{
+  flex:1;
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  max-width:520px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+.realestate-inquiry-formbox label{
+  font-size:14px;
+  display:block;
+  margin:15px 0 5px;
+}
+
+.realestate-inquiry-formbox input,
+.realestate-inquiry-formbox select{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:14px;
+  transition:0.3s;
+}
+
+/* Unique row class */
+.realestate-inquiry-rowflex{
+  display:flex;
+  gap:15px;
+}
+
+.realestate-inquiry-rowflex input{
+  flex:1;
+}
+
+/* Focus Effect */
+.realestate-inquiry-formbox input:focus,
+.realestate-inquiry-formbox select:focus{
+  border:1px solid #1da1f2;
+  box-shadow:0 0 8px rgba(29,161,242,0.3);
+  outline:none;
+}
+
+/* Invalid */
+.realestate-inquiry-formbox input:invalid,
+.realestate-inquiry-formbox select:invalid{
+  border:1px solid #ff4d4d;
+}
+
+/* Valid */
+.realestate-inquiry-formbox input:valid,
+.realestate-inquiry-formbox select:valid{
+  border:1px solid #4CAF50;
+}
+
+.realestate-inquiry-submitbtn{
+  width:100%;
+  padding:14px;
+  border:none;
+  background:#1da1f2;
+  color:white;
+  font-size:16px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.realestate-inquiry-submitbtn:hover{
+  background:#0d8ddb;
+  transform:translateY(-2px);
+}
+
+/* ===== SLIDE ANIMATION ===== */
+.realestate-slidefromright{
+  opacity:0;
+  transform:translateX(120px);
+  transition:all 1s ease;
+}
+
+.realestate-slidefromright.realestate-active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:992px){
+
+  .realestate-inquiry-flex{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .realestate-inquiry-rowflex{
+    flex-direction:column;
+  }
+
+  .realestate-inquiry-formbox{
+    max-width:100%;
+  }
+
+  .realestate-inquiry-content h1{
+    font-size:30px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="realestate-inquiry-wrapper">
+
+  <div class="realestate-inquiry-overlay"></div>
+
+  <div class="realestate-inquiry-flex">
+
+    <!-- LEFT TEXT -->
+    <div class="realestate-inquiry-content realestate-slidefromright">
+      <h1>Design Custom Real Estate Inquiry Forms</h1>
+      <p>Design custom lead capture forms that integrate with the Houzez CRM</p>
+      <div class="realestate-inquiry-divider"></div>
+    </div>
+
+    <!-- FORM -->
+    <div class="realestate-inquiry-formbox realestate-slidefromright">
+
+      <form action="contact.html" method="GET">
+
+        <label>Inquiry Type</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Buy</option>
+          <option>Rent</option>
+        </select>
+
+        <label>Information</label>
+        <select required>
+          <option value="">I'm a</option>
+          <option>Buyer</option>
+          <option>Seller</option>
+        </select>
+
+        <div class="realestate-inquiry-rowflex">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
+        </div>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <label>Location</label>
+        <div class="realestate-inquiry-rowflex">
+          <input type="text" placeholder="Select city" required>
+          <input type="text" placeholder="Zip Code" required pattern="[0-9]{5}">
+        </div>
+
+        <label>Property</label>
+        <select required>
+          <option value="">Select type</option>
+          <option>Apartment</option>
+          <option>Villa</option>
+        </select>
+
+        <div class="realestate-inquiry-rowflex">
+          <input type="number" placeholder="Max price" required>
+          <input type="number" placeholder="Minimum size (Sq Ft)" required>
+        </div>
+
+        <div class="realestate-inquiry-rowflex">
+          <input type="number" placeholder="Number of beds" required>
+          <input type="number" placeholder="Number of baths" required>
+        </div>
+
+        <button type="submit" class="realestate-inquiry-submitbtn">Submit</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+const realestateSlides = document.querySelectorAll(".realestate-slidefromright");
+
+function realestateReveal(){
+  realestateSlides.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("realestate-active");
+    }
+  });
+}
+
+window.addEventListener("load", realestateReveal);
+window.addEventListener("scroll", realestateReveal);
+</script>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT SIDE -->
+    <div class="footer-left">
+
+      <div class="footer-logo">
+        <a href="404.html">
+          <img src="logo.webp" alt="Company Logo">
+        </a>
+      </div>
+
+      <p class="footer-desc">
+        Project timelines vary depending on size and complexity and are 
+        completed within 12–18 months, with detailed planning.
+      </p>
+
+      <!-- NEWSLETTER -->
+      <div class="newsletter">
+        <h4>Subscribe To Our Newsletter</h4>
+        <p>
+          Project timelines vary depending on size and complexity and are completed within 12–18 months.
+        </p>
+
+        <div class="newsletter-input">
+          <input type="email" placeholder="Enter Your Email">
+          <a href="404.html" class="send-btn">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home2.html">Home</a></li>
+        <li><a href="buy.html">Buying</a></li>
+        <li><a href="sell.html">Selling</a></li>
+        <li><a href="rent.html">Renting</a></li>
+        <li><a href="explore.html">Explore More</a></li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-links">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="contact.html">Site Supervision</a></li>
+        <li><a href="contact.html">Commercial Construction</a></li>
+        <li><a href="contact.html">Project Management</a></li>
+        <li><a href="contact.html">Design & Planning</a></li>
+        <li><a href="contact.html">Structural Engineering</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-contact">
+      <h4>Contact Information</h4>
+      <p><strong>Address :</strong> 2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+      <p><strong>Email :</strong> <a href="contact.html">info@domainname.com</a></p>
+      <p><strong>Phone :</strong> <a href="contact.html">+ (123) 456 - 789</a></p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="footer-social">
+    <h4>Follow Us On Social:</h4>
+
+    <div class="social-links">
+      <a href="404.html" class="social-btn"><i class="fab fa-dribbble"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-instagram"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    Copyright © 2026 All Rights Reserved.
+  </div>
+
+</footer>
+
+<style>
+.footer{
+  background:#0c1120;
+  color:#fff;
+  padding:80px 8% 30px;
+  font-family:sans-serif;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.5fr;
+  gap:40px;
+}
+
+.footer-logo img{
+  width:160px;
+}
+
+.footer-desc{
+  margin:20px 0;
+  color:#bbb;
+  line-height:1.6;
+}
+
+.newsletter{
+  background:#1a2035;
+  padding:25px;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+.newsletter-input{
+  display:flex;
+  margin-top:15px;
+}
+
+.newsletter-input input{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:8px 0 0 8px;
+  outline:none;
+}
+
+.send-btn{
+  padding:12px 16px;
+  background:#c4ff00;
+  border-radius:0 8px 8px 0;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-links li{
+  margin-bottom:10px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#bbb;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#c4ff00;
+}
+
+.footer-contact p{
+  color:#bbb;
+  margin-bottom:10px;
+}
+
+.footer-social{
+  margin-top:50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.social-links{
+  display:flex;
+  gap:15px;
+}
+
+.social-btn{
+  width:45px;
+  height:45px;
+  background:#1a2035;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  transition:all 0.4s ease;
+}
+
+.social-btn:hover{
+  background:#c4ff00;
+  color:#000;
+  transform:translateY(-5px) scale(1.1);
+  box-shadow:0 10px 25px rgba(196,255,0,0.4);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:20px;
+  color:#aaa;
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .footer-container{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+
+  .footer-social{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>

@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stackly Header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.webp" alt="Stackly">
+    </div>
+
+    <ul class="menu">
+  <li class="dropdown">
+    <a href="index.html">Home <span class="plus">+</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="home.html">Home One</a></li>
+      <li><a href="home2.html">Home Two</a></li>
+    </ul>
+  </li>
+
+  <li ><a href="about.html">About</a></li>
+
+  <li><a href="goals.html">Goals</a></li>
+  <li ><a href="dashboard.html">Dashboard</a></li>
+  <li class="active"><a href="blog.html">Blog</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <button class="cta" onclick="window.location.href='login.html'">
+  Get Started →
+</button>
+
+      <!-- HAMBURGER -->
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </nav>
+</header>
+<!-- MOBILE MENU -->
+<input type="checkbox" id="menu-toggle">
+
+<div class="mobile-menu">
+  <label for="menu-toggle" class="close">✕</label>
+
+  <!-- HOME DROPDOWN -->
+  <div class="mobile-dropdown">
+    <input type="checkbox" id="home-toggle">
+    <label for="home-toggle" class="mobile-link">
+      Home <span>+</span>
+    </label>
+
+    <div class="mobile-submenu">
+      <a href="home.html">Home 1</a>
+      <a href="home2.html">Home 2</a>
+    </div>
+  </div>
+
+  <a href="about.html">About</a>
+  <a href="goals.html">Goals</a>
+  <a href="location.html">Location</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<style>
+    .menu a{
+  font-family: "Clash Display", sans-serif;
+}
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:#eaf7e4;
+}
+/* MOBILE DROPDOWN */
+.mobile-dropdown{
+  width:100%;
+  text-align:center;
+}
+
+.mobile-dropdown input{
+  display:none;
+}
+
+.mobile-link{
+  font-size:34px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.mobile-link span{
+  font-size:30px;
+}
+/* HIDE GET STARTED ON MOBILE */
+@media (max-width: 900px){
+  .cta{
+    display: none;
+  }
+}
+/* SUBMENU */
+.mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s ease;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-top:10px;
+}
+
+.mobile-submenu a{
+  font-size:22px;
+  font-weight:500;
+  opacity:0.8;
+}
+
+/* TOGGLE OPEN */
+#home-toggle:checked ~ .mobile-submenu{
+  max-height:200px;
+}
+/* HEADER */
+.header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+}
+
+/* NAVBAR */
+.navbar{
+  margin:20px;
+  padding:14px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:50px;
+  background:transparent;
+  transition:0.3s;
+}
+
+
+
+.header:hover .navbar{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+.logo img{
+  height:30px;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:26px;
+  list-style:none;
+}
+
+.menu li{
+  position:relative;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#222;
+  font-size:14px;
+  padding-bottom:4px;
+}
+
+/* ACTIVE UNDERLINE */
+.menu li.active a,
+.menu a:hover{
+  border-bottom:2px solid #6abf4b;
+}
+
+/* PLUS */
+.plus{
+  font-weight:bold;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+  position:absolute;
+  top:35px;
+  left:0;
+  background:rgb(0, 0, 0);
+  border-radius:14px;
+  padding:10px 0;
+  min-width:150px;
+  display:none;
+}
+
+.dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+.dropdown-menu a{
+  padding:10px 18px;
+  display:block;
+  font-size:13px;
+}
+
+/* RIGHT */
+.right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.cta{
+  background:rgb(3, 44, 1);
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:30px;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:22px;
+  height:2px;
+  background:black;
+}
+
+/* MOBILE MENU */
+#menu-toggle{
+  display:none;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#eaf7e4;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  transform:translateX(100%);
+  transition:0.4s;
+  z-index:1000;
+}
+
+.mobile-menu a{
+  font-size:24px;
+  text-decoration:none;
+  color:#222;
+}
+
+.close{
+  position:absolute;
+  top:30px;
+  right:30px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+#menu-toggle:checked ~ .mobile-menu{
+  transform:translateX(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .menu{
+    display:none;
+  }
+  .hamburger{
+    display:flex;
+  }
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background:#eaf7e4;
+}
+
+/* HEADER */
+.header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+}
+
+/* NAVBAR – BIG */
+.navbar{
+  margin:24px;
+  padding:22px 44px;               /* BIG HEIGHT */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:60px;
+  background:transparent;
+  transition:0.35s ease;
+}
+
+/* SCROLL / HOVER BG */
+.header:hover .navbar{
+  background:rgba(0, 0, 0, 0.9);
+  backdrop-filter:blur(14px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* LOGO BIG */
+.logo img{
+  height:42px;                     /* BIG LOGO */
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:42px;                        /* MORE SPACE */
+  list-style:none;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:18px;                  /* BIG TEXT */
+  font-weight:500;
+  padding-bottom:8px;
+  position:relative;
+}
+
+/* ACTIVE UNDERLINE */
+.menu li.active a::after,
+.menu a:hover::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:3px;                      /* THICK */
+  background:#6abf4b;
+  border-radius:2px;
+}
+
+/* PLUS */
+.plus{
+  font-size:20px;
+  font-weight:700;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+  position:absolute;
+  top:52px;
+  left:0;
+  background:rgb(0, 0, 0);
+  border-radius:18px;
+  padding:16px 0;
+  min-width:200px;
+  display:none;
+  box-shadow:0 25px 50px rgba(0,0,0,0.18);
+}
+
+.dropdown-menu a{
+  padding:14px 26px;
+  font-size:16px;
+}
+
+.dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+/* RIGHT */
+.right{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+/* CTA BIG */
+.cta{
+  background:rgba(3, 57, 1, 0.855);
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:40px;
+  font-size:17px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:7px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:black;
+  border-radius:2px;
+}
+
+/* MOBILE MENU FULL */
+#menu-toggle{
+  display:none;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#eaf7e4;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:36px;
+  transform:translateX(100%);
+  transition:0.45s ease;
+  z-index:1000;
+}
+
+.mobile-menu a{
+  font-size:34px;                  /* HUGE */
+  font-weight:600;
+  text-decoration:none;
+  color:#111;
+}
+
+.close{
+  position:absolute;
+  top:40px;
+  right:40px;
+  font-size:34px;
+  cursor:pointer;
+}
+
+/* TOGGLE */
+#menu-toggle:checked ~ .mobile-menu{
+  transform:translateX(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .menu{
+    display:none;
+  }
+  .hamburger{
+    display:flex;
+  }
+}
+</style>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* HERO SECTION */
+.hero{
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* Background image */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("architecture1.webp") center/cover no-repeat;
+  z-index:-2;
+  transform: scale(1.1);
+  animation: zoomBg 10s ease-in-out infinite alternate;
+}
+
+/* Dark overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+  z-index:-1;
+}
+
+/* HERO CONTENT */
+.hero-content{
+  animation: fadeUp 1.2s ease forwards;
+  opacity:0;
+}
+
+.hero-content h1{
+  font-size:60px;
+  font-weight:700;
+  margin-bottom:15px;
+  letter-spacing:1px;
+}
+
+.breadcrumb{
+  font-size:16px;
+  font-weight:400;
+  opacity:0.9;
+}
+
+.breadcrumb span{
+  margin:0 6px;
+  color:#9cff00;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes zoomBg{
+  from{
+    transform: scale(1.1);
+  }
+  to{
+    transform: scale(1.2);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+  .hero-content h1{
+    font-size:38px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Our Goals</h1>
+    <div class="breadcrumb">
+      Home <span>/</span> Our Goals
+    </div>
+  </div>
+</section>
+
+<section class="blog-section">
+
+  <div class="blog-container">
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="architecture1.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>Modern Construction Trends Shaping Urban Living</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="architecture2.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>Benefits Of Quality Construction For Long-Term Value</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="architecture3.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>Sustainable Building Practices For Future Ready Spaces</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="post-1.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>High-Performance Materials Shaping the Future of Engineering</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="post-2.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>Digital Construction and Building Information Modeling</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="post-3.webp" alt="">
+      </div>
+      <div class="blog-content">
+        <h3>Smart Homes and Home Automation The Heart of Modern Urban Living</h3>
+        <a href="contact.html">Read More ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pagination">
+    <div class="page-btn">‹</div>
+    <div class="page-btn active">1</div>
+    <div class="page-btn">2</div>
+    <div class="page-btn">3</div>
+    <div class="page-btn">›</div>
+  </div>
+
+</section>
+<style>
+    .blog-section{
+  padding:60px 8%;
+  background:#f5f5f5;
+}
+
+/* GRID */
+.blog-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:40px;
+}
+
+/* CARD */
+.blog-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  animation:fadeUp 0.8s ease forwards;
+  opacity:0;
+  transition:0.4s ease;
+}
+
+.blog-card:nth-child(1){animation-delay:0.1s;}
+.blog-card:nth-child(2){animation-delay:0.2s;}
+.blog-card:nth-child(3){animation-delay:0.3s;}
+.blog-card:nth-child(4){animation-delay:0.4s;}
+.blog-card:nth-child(5){animation-delay:0.5s;}
+.blog-card:nth-child(6){animation-delay:0.6s;}
+
+.blog-card:hover{
+  transform:translateY(-8px);
+}
+
+/* IMAGE */
+.blog-img{
+  overflow:hidden;
+}
+
+.blog-img img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  transition:0.6s ease;
+}
+
+/* Fade Out → Fade In Effect */
+.blog-card:hover img{
+  opacity:0.6;
+  transform:scale(1.05);
+}
+
+/* CONTENT */
+.blog-content{
+  padding:20px;
+}
+
+.blog-content h3{
+  font-size:18px;
+  margin-bottom:15px;
+  line-height:1.5;
+  color:#111;
+}
+
+.blog-content a{
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  color:#000;
+  transition:0.3s;
+}
+
+.blog-content a:hover{
+  letter-spacing:1px;
+}
+
+/* PAGINATION */
+.pagination{
+  margin-top:60px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+.page-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:1px solid #ddd;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.page-btn.active{
+  background:#111;
+  color:#fff;
+}
+
+.page-btn:hover{
+  background:#111;
+  color:#fff;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+
+<section class="commitment-section">
+
+  <div class="commitment-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left-content">
+      <span class="tag">• Our Commitment</span>
+
+      <h1 class="main-heading">
+        Dedicated to honest & <br>
+        <em>reliable construction</em>
+      </h1>
+
+      <p class="description">
+        We are committed to delivering construction services built on honesty,
+        reliability, and transparency from planning to completion, we follow clear processes.
+      </p>
+
+      <a href="contact.html" class="contact-btn">
+        Contact Us ↗
+      </a>
+
+      <div class="quote">
+        “Creating modern homes and commercial spaces precision construction and trusted real estate expertise.”
+      </div>
+    </div>
+
+
+    <!-- RIGHT CARDS -->
+    <div class="right-content">
+
+      <div class="info-card">
+        <h3>Quality Craftsmanship - Superior construction with attention to detail</h3>
+        <p>We prioritize quality craftsmanship in every project, ensuring that every detail is executed with precision and care.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Sustainability - Durable and environmentally conscious practices</h3>
+        <p>We prioritize quality craftsmanship in every project, ensuring that every detail is executed with precision and care.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Modern Techniques - Innovative construction and design methods</h3>
+        <p>We prioritize quality craftsmanship in every project, ensuring that every detail is executed with precision and care.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<style>
+    .commitment-section{
+  padding:80px 8%;
+  background:#f6f6f6;
+}
+
+.commitment-container{
+  display:flex;
+  gap:60px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+.left-content{
+  flex:1;
+  min-width:320px;
+}
+
+/* Tag */
+.tag{
+  display:inline-block;
+  background:#fff;
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* Heading */
+.main-heading{
+  font-size:48px;
+  font-weight:600;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.main-heading em{
+  font-style:italic;
+  font-weight:500;
+}
+
+/* Description */
+.description{
+  font-size:16px;
+  color:#ffffff;
+  margin-bottom:30px;
+  line-height:1.6;
+}
+
+/* Button */
+.contact-btn{
+  display:inline-block;
+  background:#0d1321;
+  color:#fff;
+  padding:14px 28px;
+  border-radius:40px;
+  text-decoration:none;
+  margin-bottom:40px;
+  transition:0.3s;
+}
+
+.contact-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* Quote */
+.quote{
+  font-size:18px;
+  font-weight:500;
+  color:#ffffff;
+  border-top:1px solid #ddd;
+  padding-top:30px;
+}
+
+/* RIGHT SIDE */
+.right-content{
+  flex:1;
+  min-width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+.commitment-section{
+  position:relative;
+  padding:80px 8%;
+  background:url("bbg.webp") center/cover no-repeat;
+  overflow:hidden;
+}
+
+/* Dark overlay */
+.commitment-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55); /* adjust darkness here */
+  z-index:1;
+}
+
+/* Make content appear above overlay */
+.commitment-container{
+  position:relative;
+  z-index:2;
+}
+.info-card{
+  background:#5e5e5e;
+  padding:30px;
+  border-radius:20px;
+  border:1px solid #e5e5e5;
+}
+
+.info-card h3{
+  margin-bottom:15px;
+  font-size:18px;
+}
+
+.info-card p{
+  color:#fcf9f9;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* Initial hidden state */
+.left-content > *{
+  opacity:0;
+  transform:translateX(-80px);
+  transition:all 0.8s ease;
+}
+
+/* When section is visible */
+.commitment-section.active .left-content > *{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* Stagger effect */
+.commitment-section.active .left-content > *:nth-child(1){ transition-delay:0.2s; }
+.commitment-section.active .left-content > *:nth-child(2){ transition-delay:0.4s; }
+.commitment-section.active .left-content > *:nth-child(3){ transition-delay:0.6s; }
+.commitment-section.active .left-content > *:nth-child(4){ transition-delay:0.8s; }
+.commitment-section.active .left-content > *:nth-child(5){ transition-delay:1s; }
+</style>
+<script>
+const section = document.querySelector('.commitment-section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+},{
+  threshold:0.3
+});
+
+observer.observe(section);
+</script>
+
+<section class="hs-pricing-section">
+
+  <div class="hs-pricing-wrapper">
+
+    <!-- BASIC -->
+    <div class="hs-pricing-card">
+      <h3>Basic Plan</h3>
+      <h2>$39 <span>/Per Month</span></h2>
+      <p>We offer transparent & flexible pricing plan to meet the need of every client.</p>
+
+      <h4>What Included Feature:</h4>
+      <ul>
+        <li>Ideal for small residential projects</li>
+        <li>Modern Construction Technology</li>
+        <li>Quality material & construction</li>
+        <li>Legal & Documentation Support</li>
+      </ul>
+
+      <a href="contact.html" class="hs-pricing-btn">Get Started</a>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="hs-pricing-card">
+      <h3>Standard Plan</h3>
+      <h2>$49 <span>/Per Month</span></h2>
+      <p>We offer transparent & flexible pricing plan to meet the need of every client.</p>
+
+      <h4>What Included Feature:</h4>
+      <ul>
+        <li>Ideal for small residential projects</li>
+        <li>Modern Construction Technology</li>
+        <li>Quality material & construction</li>
+        <li>Legal & Documentation Support</li>
+      </ul>
+
+      <a href="contact.html" class="hs-pricing-btn">Get Started</a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="hs-pricing-card">
+      <h3>Premium Plan</h3>
+      <h2>$59 <span>/Per Month</span></h2>
+      <p>We offer transparent & flexible pricing plan to meet the need of every client.</p>
+
+      <h4>What Included Feature:</h4>
+      <ul>
+        <li>Ideal for small residential projects</li>
+        <li>Modern Construction Technology</li>
+        <li>Quality material & construction</li>
+        <li>Legal & Documentation Support</li>
+      </ul>
+
+      <a href="contact.html" class="hs-pricing-btn">Get Started</a>
+    </div>
+
+  </div>
+
+  <!-- Bottom Content -->
+  <div class="hs-pricing-footer">
+    <p>✔ Get 30 day free trial</p>
+    <p>✔ No any hidden fee pay</p>
+    <p>✔ You can cancel anytime</p>
+  </div>
+
+</section>
+
+
+<style>
+/* SECTION */
+.hs-pricing-section{
+  padding:100px 8%;
+  background:#f5f5f5;
+  overflow:hidden;
+}
+
+/* GRID */
+.hs-pricing-wrapper{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+}
+
+/* CARD */
+.hs-pricing-card{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.06);
+  transition:0.4s ease;
+
+  /* animation initial */
+  opacity:0;
+  transform:translateX(-120px);
+}
+
+.hs-pricing-card:hover{
+  transform:translateY(-10px);
+}
+
+/* TEXT */
+.hs-pricing-card h3{
+  margin-bottom:15px;
+  font-size:22px;
+}
+
+.hs-pricing-card h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.hs-pricing-card h2 span{
+  font-size:16px;
+  color:#666;
+  font-weight:400;
+}
+
+.hs-pricing-card p{
+  color:#666;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.hs-pricing-card h4{
+  margin-bottom:15px;
+}
+
+.hs-pricing-card ul{
+  list-style:none;
+  padding:0;
+  margin-bottom:25px;
+}
+
+.hs-pricing-card ul li{
+  margin-bottom:12px;
+  padding-left:22px;
+  position:relative;
+}
+
+.hs-pricing-card ul li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  color:#c7ff00;
+}
+
+/* BUTTON */
+.hs-pricing-btn{
+  display:block;
+  text-align:center;
+  padding:14px;
+  background:#0d1321;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.hs-pricing-btn:hover{
+  background:#000;
+  transform:translateY(-3px);
+}
+
+/* FOOTER */
+.hs-pricing-footer{
+  margin-top:60px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+
+  opacity:0;
+  transform:translateX(-120px);
+  transition:all 0.8s ease;
+}
+
+/* ACTIVE STATE */
+.hs-pricing-section.active .hs-pricing-card{
+  opacity:1;
+  transform:translateX(0);
+  transition:all 0.8s ease;
+}
+
+.hs-pricing-section.active .hs-pricing-card:nth-child(1){ transition-delay:0.2s; }
+.hs-pricing-section.active .hs-pricing-card:nth-child(2){ transition-delay:0.4s; }
+.hs-pricing-section.active .hs-pricing-card:nth-child(3){ transition-delay:0.6s; }
+
+.hs-pricing-section.active .hs-pricing-footer{
+  opacity:1;
+  transform:translateX(0);
+  transition-delay:0.8s;
+}
+</style>
+
+
+<script>
+const hsPricing = document.querySelector('.hs-pricing-section');
+
+const hsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+},{
+  threshold:0.3
+});
+
+hsObserver.observe(hsPricing);
+</script>
+
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT SIDE -->
+    <div class="footer-left">
+
+      <div class="footer-logo">
+        <a href="404.html">
+          <img src="logo.webp" alt="Company Logo">
+        </a>
+      </div>
+
+      <p class="footer-desc">
+        Project timelines vary depending on size and complexity and are 
+        completed within 12–18 months, with detailed planning.
+      </p>
+
+      <!-- NEWSLETTER -->
+      <div class="newsletter">
+        <h4>Subscribe To Our Newsletter</h4>
+        <p>
+          Project timelines vary depending on size and complexity and are completed within 12–18 months.
+        </p>
+
+        <div class="newsletter-input">
+          <input type="email" placeholder="Enter Your Email">
+          <a href="404.html" class="send-btn">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-links">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="contact.html">Site Supervision</a></li>
+        <li><a href="contact.html">Commercial Construction</a></li>
+        <li><a href="contact.html">Project Management</a></li>
+        <li><a href="contact.html">Design & Planning</a></li>
+        <li><a href="contact.html">Structural Engineering</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-contact">
+      <h4>Contact Information</h4>
+      <p><strong>Address :</strong> 2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+      <p><strong>Email :</strong> <a href="contact.html">info@domainname.com</a></p>
+      <p><strong>Phone :</strong> <a href="contact.html">+ (123) 456 - 789</a></p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="footer-social">
+    <h4>Follow Us On Social:</h4>
+
+    <div class="social-links">
+      <a href="404.html" class="social-btn"><i class="fab fa-dribbble"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-instagram"></i></a>
+      <a href="404.html" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    Copyright © 2026 All Rights Reserved.
+  </div>
+
+</footer>
+
+<style>
+.footer{
+  background:#0c1120;
+  color:#fff;
+  padding:80px 8% 30px;
+  font-family:sans-serif;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.5fr;
+  gap:40px;
+}
+
+.footer-logo img{
+  width:160px;
+}
+
+.footer-desc{
+  margin:20px 0;
+  color:#bbb;
+  line-height:1.6;
+}
+
+.newsletter{
+  background:#1a2035;
+  padding:25px;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+.newsletter-input{
+  display:flex;
+  margin-top:15px;
+}
+
+.newsletter-input input{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:8px 0 0 8px;
+  outline:none;
+}
+
+.send-btn{
+  padding:12px 16px;
+  background:#c4ff00;
+  border-radius:0 8px 8px 0;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-links li{
+  margin-bottom:10px;
+}
+
+.footer-links a,
+.footer-contact a{
+  color:#bbb;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#c4ff00;
+}
+
+.footer-contact p{
+  color:#bbb;
+  margin-bottom:10px;
+}
+
+.footer-social{
+  margin-top:50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.social-links{
+  display:flex;
+  gap:15px;
+}
+
+.social-btn{
+  width:45px;
+  height:45px;
+  background:#1a2035;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  transition:all 0.4s ease;
+}
+
+.social-btn:hover{
+  background:#c4ff00;
+  color:#000;
+  transform:translateY(-5px) scale(1.1);
+  box-shadow:0 10px 25px rgba(196,255,0,0.4);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:20px;
+  color:#aaa;
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .footer-container{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+
+  .footer-social{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+document.querySelectorAll('section:not([data-aos])').forEach(function(s){s.setAttribute('data-aos','fade-up');});
+AOS.init({duration:800, once:true});
+</script>
